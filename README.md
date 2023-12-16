@@ -10,7 +10,7 @@ PIP terinstal
 
 #Instalasi
 Clone repositori ini ke sistem Anda:
-git clone https://github.com/namapengguna/project_base_plsql.git
+git clone https://github.com/bryanbayup/project_base_plsql.git
 cd project_base_plsql
 
 #Buat dan aktifkan lingkungan virtual:
