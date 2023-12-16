@@ -1,5 +1,4 @@
 # project_base_plsql UAS
-Pendahuluan
 Proyek ini adalah aplikasi manajemen pengguna sederhana yang dibangun dengan menggunakan Flask, PostgreSQL, dan enkripsi password menggunakan AES. Aplikasi ini memungkinkan pengguna untuk membuat akun dengan menyimpan nama pengguna dan kata sandi yang dienkripsi secara aman di database.
 
 syarat menjalankan aplikasi
