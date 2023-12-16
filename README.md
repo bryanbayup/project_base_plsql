@@ -4,13 +4,12 @@ Proyek ini adalah aplikasi manajemen pengguna sederhana yang dibangun dengan men
 
 syarat menjalankan aplikasi
 Pastikan sistem Anda telah memenuhi persyaratan berikut sebelum menginstal proyek ini:
-
 Python 3.x terinstal
 PostgreSQL terinstal dan konfigurasi (termasuk pembuatan database)
 PIP terinstal
 
-Instalasi
-#Clone repositori ini ke sistem Anda:
+#Instalasi
+Clone repositori ini ke sistem Anda:
 git clone https://github.com/namapengguna/project_base_plsql.git
 cd project_base_plsql
 
