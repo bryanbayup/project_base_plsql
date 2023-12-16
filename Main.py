@@ -9,14 +9,12 @@ app = Flask(__name__)
 # Fungsi Enkripsi dan Dekripsi menggunakan AES
 def encrypt(text, key):
     key = key.ljust(32)
-  # Sesuaikan panjang kunci menjadi 32 byte
     cipher = AES.new(key, AES.MODE_CBC)
     ciphertext = cipher.encrypt(text.ljust(32).encode('utf-8'))
     return base64.b64encode(cipher.iv + ciphertext)
 
 def decrypt(encrypted_text, key):
     key = key.ljust(32)
-  # Sesuaikan panjang kunci menjadi 32 byte
     encrypted_text = base64.b64decode(encrypted_text)
     iv = encrypted_text[:16]
     ciphertext = encrypted_text[16:]
