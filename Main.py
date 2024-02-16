@@ -8,18 +8,28 @@ app = Flask(__name__)
 
 # Fungsi Enkripsi dan Dekripsi menggunakan AES
 def encrypt(text, key):
-    key = key.ljust(32)
-    cipher = AES.new(key, AES.MODE_CBC)
-    ciphertext = cipher.encrypt(text.ljust(32).encode('utf-8'))
-    return base64.b64encode(cipher.iv + ciphertext)
+    try:
+        key = key.ljust(32)
+        cipher = AES.new(key, AES.MODE_CBC)
+        ciphertext = cipher.encrypt(text.ljust(32).encode('utf-8'))
+        return base64.b64encode(cipher.iv + ciphertext)
+    except Exception as e:
+        print(f"Error during encryption: {str(e)}")
+        return None
 
 def decrypt(encrypted_text, key):
-    key = key.ljust(32)
-    encrypted_text = base64.b64decode(encrypted_text)
-    iv = encrypted_text[:16]
-    ciphertext = encrypted_text[16:]
-    cipher = AES.new(key, AES.MODE_CBC, iv)
-    return cipher.decrypt(ciphertext).rstrip().decode('utf-8')
+    try:
+        key = key.ljust(32)
+        encrypted_text = base64.b64decode(encrypted_text)
+        iv = encrypted_text[:16]
+        ciphertext = encrypted_text[16:]
+        cipher = AES.new(key, AES.MODE_CBC, iv)
+        decrypted_text = cipher.decrypt(ciphertext).rstrip(b'\x00').decode('utf-8')
+        return decrypted_text
+    except Exception as e:
+        print(f"Error during decryption: {str(e)}")
+        return None
+
 
 # Koneksi ke PostgreSQL
 conn = psycopg2.connect(
